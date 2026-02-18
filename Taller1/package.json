@@ -2,9 +2,11 @@
   "name": "taller1",
   "version": "1.0.0",
   "description": "Taller de CI/CD",
-  "main": "index.js",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/app.js",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
