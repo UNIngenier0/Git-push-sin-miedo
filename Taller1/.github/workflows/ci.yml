@@ -42,51 +42,11 @@ jobs:
       - name: Create status page
         run: |
           mkdir -p public
-          cat > public/index.html <<HTML
-          <!doctype html>
-          <html lang="es">
-          <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width,initial-scale=1" />
-            <title>Deploy Status</title>
-            <style>
-              body{font-family:Inter,system-ui,Segoe UI,Arial;background:#0f1724;color:#e6eef8;padding:24px}
-              .card{background:#0b1220;border-radius:8px;padding:20px;margin:12px 0;box-shadow:0 6px 18px rgba(2,6,23,.6)}
-              h1{margin:0 0 8px;color:#8be9fd}
-              .muted{color:#9fb1c8;font-size:14px}
-              ul{margin:8px 0 0 18px}
-            </style>
-          </head>
-          <body>
-            <div class="card">
-              <h1>Deploy Status</h1>
-              <p class="muted">Deployment Successful</p>
-              <p class="muted">Last Deploy: $(date)</p>
-              <p class="muted">Commit SHA: $GITHUB_SHA</p>
-              <p class="muted">Branch: $GITHUB_REF</p>
-            </div>
-
-            <div class="card">
-              <h2>API Endpoints (Express App)</h2>
-              <p class="muted">Para ejecutar localmente: <code>npm start</code></p>
-              <ul>
-                <li><strong>GET /</strong> - Mensaje de bienvenida</li>
-                <li><strong>GET /health</strong> - Estado de salud del servicio</li>
-                <li><strong>GET /version</strong> - Versión de la aplicación</li>
-              </ul>
-            </div>
-
-            <div class="card">
-              <h2>Pipeline CI/CD</h2>
-              <ul>
-                <li>Integración continua con pruebas automatizadas</li>
-                <li>Análisis de cobertura de código</li>
-                <li>Despliegue automático a GitHub Pages</li>
-              </ul>
-            </div>
-          </body>
-          </html>
-HTML
+          echo '<html><body>' > public/index.html
+          echo '<h1>Deploy Status</h1>' >> public/index.html
+          echo '<p>Last deploy: '$(date)'</p>' >> public/index.html
+          echo '<p>Commit: '$GITHUB_SHA'</p>' >> public/index.html
+          echo '</body></html>' >> public/index.html
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
