@@ -12,7 +12,7 @@ API REST con pipeline automatizado de CI/CD usando Express, Jest y GitHub Action
 - **GET `/health`** → `{ "status": "OK", "timestamp": "..." }`
 - **GET `/version`** → `{ "version": "1.0.0" }`
 
----
+----
 
 ## 📁 Estructura
 
