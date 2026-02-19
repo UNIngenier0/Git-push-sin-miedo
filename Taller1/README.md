@@ -86,4 +86,4 @@ Página: `https://uningenier0.github.io/Git-push-sin-miedo/`
 **Profesor**: Sergio Vargas Parada | sevargasp@unal.edu.co
 
 ---
-
+**Integrantes**: David Sebastian Hurtado Sanchez | Daniel Santiago Rodriguez Rodriguez | Jhon Edison Prieto Artunduaga | Stephan A. R. Garcia M.
