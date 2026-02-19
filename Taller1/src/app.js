@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 app.get('/', (req, res) => {
-    res.json({ message: 'Hola, DevOps!' });
+    res.json({ message: 'Holaa, DevOps!' });
 });
 app.get('/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date() });
