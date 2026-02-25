@@ -1,4 +1,4 @@
-# 📘 Principios SOLID – Resumen Extendido
+#  Principios SOLID 
 
 Este documento resume el contenido del video **“Principios SOLID - Programación en español”**, donde se explican los cinco principios fundamentales del diseño orientado a objetos conocidos como **SOLID**.  
 
@@ -6,7 +6,7 @@ Estos principios permiten escribir código más limpio, mantenible, escalable y 
 
 ---
 
-# 🔎 ¿Qué son los Principios SOLID?
+# ¿Qué son los Principios SOLID?
 
 SOLID es un acrónimo que representa cinco principios de diseño orientado a objetos:
 
@@ -24,44 +24,42 @@ El objetivo principal de estos principios es:
 - Permitir que el software crezca sin romper funcionalidades existentes.
 - Hacer el código más testeable.
 
----
 
-# 🟢 S – Single Responsibility Principle (SRP)
+#  S – Single Responsibility Principle (SRP)
 
-## 📌 Principio de Responsabilidad Única
+##  Principio de Responsabilidad Única
 
 > Una clase debe tener una sola razón para cambiar.
 
 Esto significa que cada clase debe encargarse de una única responsabilidad dentro del sistema. Si una clase maneja múltiples responsabilidades (por ejemplo, lógica de negocio, acceso a datos y presentación), cualquier cambio en una de ellas puede afectar a las demás.
 
-## 🚨 Problemas comunes
+##  Problemas comunes
 
 - Clases demasiado grandes.
 - Métodos que realizan múltiples tareas distintas.
 - Código difícil de probar o reutilizar.
 
-## ✅ Beneficios de aplicarlo
+##  Beneficios de aplicarlo
 
 - Código más claro.
 - Mayor facilidad de mantenimiento.
 - Menor impacto al realizar cambios.
 
----
 
-# 🟡 O – Open/Closed Principle (OCP)
+#  O – Open/Closed Principle (OCP)
 
-## 📌 Principio Abierto/Cerrado
+##  Principio Abierto/Cerrado
 
 > Las clases deben estar abiertas para su extensión, pero cerradas para su modificación.
 
 Este principio indica que debemos poder agregar nuevas funcionalidades sin modificar el código existente. En lugar de cambiar clases ya creadas, se deben extender mediante herencia, composición o abstracciones.
 
-## 🚨 Problemas comunes
+##  Problemas comunes
 
 - Uso excesivo de condicionales (`if`, `switch`) para agregar nuevos comportamientos.
 - Modificar constantemente clases estables cuando se agregan nuevas funcionalidades.
 
-## ✅ Beneficios de aplicarlo
+##  Beneficios de aplicarlo
 
 - Menor riesgo de introducir errores.
 - Mayor estabilidad del sistema.
@@ -69,30 +67,29 @@ Este principio indica que debemos poder agregar nuevas funcionalidades sin modif
 
 ---
 
-# 🔵 L – Liskov Substitution Principle (LSP)
+#  L – Liskov Substitution Principle (LSP)
 
-## 📌 Principio de Sustitución de Liskov
+##  Principio de Sustitución de Liskov
 
 > Las clases derivadas deben poder sustituir a sus clases base sin alterar el correcto funcionamiento del programa.
 
 Si una clase hija cambia el comportamiento esperado de la clase padre, entonces se está violando este principio.
 
-## 🚨 Ejemplo de violación
+##  Ejemplo de violación
 
 - Una clase hija sobrescribe un método y lanza una excepción inesperada.
 - Una subclase no respeta las reglas o contratos definidos por la clase base.
 
-## ✅ Beneficios de aplicarlo
+##  Beneficios de aplicarlo
 
 - Jerarquías de herencia coherentes.
 - Código más predecible.
 - Mejor reutilización de clases.
 
----
 
-# 🟠 I – Interface Segregation Principle (ISP)
+#  I – Interface Segregation Principle (ISP)
 
-## 📌 Principio de Segregación de Interfaces
+##  Principio de Segregación de Interfaces
 
 > Una clase no debe estar obligada a implementar métodos que no utiliza.
 
@@ -104,7 +101,7 @@ En lugar de crear interfaces grandes y generales, es mejor dividirlas en interfa
 - Métodos vacíos en implementaciones.
 - Código innecesario o confuso.
 
-## ✅ Beneficios de aplicarlo
+##  Beneficios de aplicarlo
 
 - Interfaces más claras.
 - Menor acoplamiento.
@@ -112,9 +109,9 @@ En lugar de crear interfaces grandes y generales, es mejor dividirlas en interfa
 
 ---
 
-# 🟣 D – Dependency Inversion Principle (DIP)
+#  D – Dependency Inversion Principle (DIP)
 
-## 📌 Principio de Inversión de Dependencias
+## Principio de Inversión de Dependencias
 
 > Las clases de alto nivel no deben depender de clases de bajo nivel. Ambas deben depender de abstracciones.
 
@@ -122,21 +119,20 @@ Esto significa que las dependencias deben basarse en interfaces o abstracciones,
 
 En lugar de crear objetos directamente dentro de una clase, se deben inyectar sus dependencias.
 
-## 🚨 Problemas comunes
+##  Problemas comunes
 
 - Alto acoplamiento entre módulos.
 - Dificultad para hacer pruebas unitarias.
 - Código rígido ante cambios.
 
-## ✅ Beneficios de aplicarlo
+## Beneficios de aplicarlo
 
 - Mayor flexibilidad.
 - Mejor testeo (uso de mocks).
 - Arquitecturas más limpias y desacopladas.
 
----
 
-# 💡 Aplicación en la Vida Real
+# Aplicación en la Vida Real
 
 El video enfatiza que los principios SOLID no son reglas estrictas, sino guías para mejorar la calidad del diseño del software.
 
@@ -156,9 +152,8 @@ El video enfatiza que los principios SOLID no son reglas estrictas, sino guías 
 - Mejor capacidad de adaptación al cambio.
 - Código más fácil de probar y depurar.
 
----
 
-# 🧠 Conclusión
+# Conclusión
 
 Los principios SOLID proporcionan una base sólida para diseñar software orientado a objetos de manera profesional y estructurada.
 
