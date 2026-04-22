@@ -1,0 +1,257 @@
+{
+  "info": {
+    "_postman_id": "9029356e-83c6-42d9-a31f-a1d398a02d29",
+    "name": "Tarea 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46104095",
+    "_collection_link": "https://go.postman.co/collection/46104095-9029356e-83c6-42d9-a31f-a1d398a02d29?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "NASA - Foto del día",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Respuesta tiene title y url\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.have.property(\"title\");\r",
+              "    pm.expect(jsonData).to.have.property(\"url\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY",
+          "protocol": "https",
+          "host": [
+            "api",
+            "nasa",
+            "gov"
+          ],
+          "path": [
+            "planetary",
+            "apod"
+          ],
+          "query": [
+            {
+              "key": "api_key",
+              "value": "DEMO_KEY"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NASA - Rango de fechas",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Respuesta es un array con múltiples resultados\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.length).to.be.above(1);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2024-01-01&end_date=2024-01-05",
+          "protocol": "https",
+          "host": [
+            "api",
+            "nasa",
+            "gov"
+          ],
+          "path": [
+            "planetary",
+            "apod"
+          ],
+          "query": [
+            {
+              "key": "api_key",
+              "value": "DEMO_KEY"
+            },
+            {
+              "key": "start_date",
+              "value": "2024-01-01"
+            },
+            {
+              "key": "end_date",
+              "value": "2024-01-05"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NASA - Foto por fecha",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"La fecha coincide con la solicitada\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.date).to.eql(\"2024-01-01\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2024-01-01",
+          "protocol": "https",
+          "host": [
+            "api",
+            "nasa",
+            "gov"
+          ],
+          "path": [
+            "planetary",
+            "apod"
+          ],
+          "query": [
+            {
+              "key": "api_key",
+              "value": "DEMO_KEY"
+            },
+            {
+              "key": "date",
+              "value": "2024-01-01"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NASA - Sin API KEY (error)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 403\", function () {\r",
+              "    pm.response.to.have.status(403);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Respuesta contiene mensaje de error\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.have.property(\"error\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod",
+          "protocol": "https",
+          "host": [
+            "api",
+            "nasa",
+            "gov"
+          ],
+          "path": [
+            "planetary",
+            "apod"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "NASA- Fecha inválida (error)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 400\", function () {\r",
+              "    pm.response.to.have.status(400);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Respuesta contiene mensaje de error\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.have.property(\"error\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=3000-01-01",
+          "protocol": "https",
+          "host": [
+            "api",
+            "nasa",
+            "gov"
+          ],
+          "path": [
+            "planetary",
+            "apod"
+          ],
+          "query": [
+            {
+              "key": "api_key",
+              "value": "DEMO_KEY"
+            },
+            {
+              "key": "date",
+              "value": "3000-01-01"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
