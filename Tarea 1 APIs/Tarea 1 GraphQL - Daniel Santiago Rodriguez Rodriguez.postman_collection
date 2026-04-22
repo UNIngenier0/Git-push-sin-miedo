@@ -1,0 +1,249 @@
+{
+  "info": {
+    "_postman_id": "31715df9-7d07-4f54-90bd-2c4c51137ef5",
+    "name": "Tarea GraphQL - Daniel Santiago Rodriguez Rodriguez",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46104095",
+    "_collection_link": "https://go.postman.co/collection/46104095-31715df9-7d07-4f54-90bd-2c4c51137ef5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Paises (Codigo- Nombre)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Devuelve lista de países\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.countries).to.be.an(\"array\");\r",
+              "    pm.expect(jsonData.data.countries.length).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n  countries {\r\n    code\r\n    name\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://countries.trevorblades.com/graphql",
+          "protocol": "https",
+          "host": [
+            "countries",
+            "trevorblades",
+            "com"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Filtro un solo pais",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El país es Colombia\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.country.name).to.eql(\"Colombia\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n  country(code: \"CO\") {\r\n    name\r\n    capital\r\n    currency\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://countries.trevorblades.com/graphql",
+          "protocol": "https",
+          "host": [
+            "countries",
+            "trevorblades",
+            "com"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Query anidada (Continente + paises)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El continente tiene países\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.continent.countries).to.be.an(\"array\");\r",
+              "    pm.expect(jsonData.data.continent.countries.length).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n  continent(code: \"SA\") {\r\n    name\r\n    countries {\r\n      name\r\n      capital\r\n    }\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://countries.trevorblades.com/graphql",
+          "protocol": "https",
+          "host": [
+            "countries",
+            "trevorblades",
+            "com"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Idiomas",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Devuelve lista de idiomas\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.languages).to.be.an(\"array\");\r",
+              "    pm.expect(jsonData.data.languages.length).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n  languages {\r\n    code\r\n    name\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://countries.trevorblades.com/graphql",
+          "protocol": "https",
+          "host": [
+            "countries",
+            "trevorblades",
+            "com"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Pais con datos",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status es 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"El país tiene idiomas\", function () {\r",
+              "    const jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.country.languages).to.be.an(\"array\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "graphql",
+          "graphql": {
+            "query": "query {\r\n  country(code: \"US\") {\r\n    name\r\n    native\r\n    emoji\r\n    languages {\r\n      name\r\n    }\r\n  }\r\n}",
+            "variables": ""
+          }
+        },
+        "url": {
+          "raw": "https://countries.trevorblades.com/graphql",
+          "protocol": "https",
+          "host": [
+            "countries",
+            "trevorblades",
+            "com"
+          ],
+          "path": [
+            "graphql"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
