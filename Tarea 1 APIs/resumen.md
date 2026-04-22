@@ -1,7 +1,7 @@
 # 🧪 Taller APIs REST y GraphQL
 
 ## 👨‍💻 Estudiante
-Daniel Rodríguez
+Daniel Santiago Rodríguez Rodriguez
 
 ---
 
